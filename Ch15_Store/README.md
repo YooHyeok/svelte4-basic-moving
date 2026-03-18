@@ -18,7 +18,6 @@
 # *[Ch12) LifeCycle01: Hook - onMount, onDestroy, beforeUpdate, afterUpdate](../Ch12_LifeCycle01_Hook/README.md)*
 # *[Ch13) LifeCycle02: 응용 - elizabot 활용 채팅, tick](../Ch13_LifeCycle02/README.md)*
 # *[Ch14) CPropDrilling과 ContextAPI](../Ch14_ContextAPI/README.md)*
-# *[Ch15) Store](../Ch15_Store/README.md)*
 # *Ch15) Store*
 <details>
 <summary>접기/펼치기</summary>
@@ -80,8 +79,46 @@ Store 종류로 3가지를 학습해본다.
   ```
 
 #### 예제) 카운터 증가,감소
-
-
+- Counter.vue
+  ```svelte
+  <script>
+    import { count } from '../store/writable'
+    import Increment from './Increment.svelte'
+    import Decrement from './Decrement.svelte'
+    import Reset from './Reset.svelte'
+  </script>
+  <div>
+    <h1>01) Writable</h1>
+    <h4>값: { $count }</h4>
+    <Increment/>
+    <Decrement/>
+    <Reset/>
+  </div>
+  ```
+- Increment.vue
+  ```svelte
+  <script>
+    import { count } from '../store/writable'
+    const increment = () => count.update(n => n + 1)
+  </script>
+  <button on:click={increment}>+</button>
+  ```
+- Decrement.vue
+  ```svelte
+  <script>
+    import { count } from '../store/writable'
+    const decrement = () => count.update(n => n - 1)
+  </script>
+  <button on:click={decrement}>+</button>
+  ```
+- reset
+  ```svelte
+  <script>
+    import { count } from '../store/writable'
+    const reset = () => count.set(0)
+  </script>
+  <button on:click={reset}></button>
+  ```
 
 #### writable 구독 방식 차이
 - 컴포넌트(수동 구독)
@@ -100,6 +137,7 @@ Store 종류로 3가지를 학습해본다.
   </script>
   {es}
   ```
+
 - 컴포넌트(자동 구독)
   ```svelte
   <script>
@@ -109,6 +147,21 @@ Store 종류로 3가지를 학습해본다.
   </script>
   {$exStore}
   ```
+  
+  위 코드는 내부적으로 아래와 같이 컴파일된다.  
+  ```svelte
+  <script>
+    import { exStore } from './store/index.js'
+    let $exStore;
+    const unsubscribe = exStore.subscribe(value => $exStore = value)
+    const inc1 = () => exStore.set($exStore + 1)
+    onDestory(() => unsubcribe())
+  </script>
+  {$exStore}
+  ```
+
+  `$exStore = $exStore + 1`는 update가 아닌 set으로 적용처리된다.  
+
 
 #### set과 update의 차이
 
@@ -225,6 +278,19 @@ set 함수는 콜스택에 쌓이는 함수 내에서 초기화 즉, 딱 1회성
   }
 </script>
 ```
+
+자동 구독 문법에서는 delay를 주더라도 실시간 값을 읽기 때문에 문제는 발생하지 않는다.
+
+```svelte
+<script>
+  const reset = async () => {
+    $count = 0
+    await delay()
+    $count = $count + 5        // 똑같이 덮어쓰기 문제 발생
+  }
+</script>
+```
+
 
 ### Readable
 

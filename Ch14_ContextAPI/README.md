@@ -17,8 +17,6 @@
 # *[Ch11) Slot - 기본문법, Fallback, named, props, fragment, $$Slots](../Ch11_Slot/README.md)*
 # *[Ch12) LifeCycle01: Hook - onMount, onDestroy, beforeUpdate, afterUpdate](../Ch12_LifeCycle01_Hook/README.md)*
 # *[Ch13) LifeCycle02: 응용 - elizabot 활용 채팅, tick](../Ch13_LifeCycle02/README.md)*
-# *[Ch14) CPropDrilling과 ContextAPI](../Ch14_ContextAPI//README.md)*
-# *[Ch14) CPropDrilling과 ContextAPI](../Ch14_ContextAPI//README.md)*
 # *Ch14) PropDrilling과 ContextAPI *
 <details>
 <summary>접기/펼치기</summary>
