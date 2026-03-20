@@ -293,6 +293,104 @@ set 함수는 콜스택에 쌓이는 함수 내에서 초기화 즉, 딱 1회성
 
 
 ### Readable
+읽기 전용 Store로 현재 시간, 사용자 위치, 마우스 위치 등 수정이 필요하지 않은Store 를 선언할 때 사용한다.  
+
+(읽기 전용이지만 readable 내부 set 콜백으로는 값 변경이 가능하므로, 외부에서 접근할때만 읽기 전용으로 사용 가능하다.)
+
+```svelte
+<script>
+  readable(초기값, function start(set) {
+    // 초기 store 값 호출시 코드
+    set(변경값)
+    return function stop() { // cleanup
+      // store 값 제거시 코드
+      set(초기값)
+    }
+  })
+</script>
+```
+초기값이 필요없는 경우는 null이나 undefind를 전달하면 된다.  
+함수 선언식은 익명 화살표 함수로도 대응이 가능하다.  
+
+```svelte
+<script>
+  readable(초기값, (set) => {
+    // 초기 store 값 호출시 코드
+    set(변경값)
+    return () => { // cleanup
+      // store 값 제거시 코드
+      set(초기값)
+    }
+  })
+</script>
+```
+set은 관찰되고 있는 값을 변경하는 콜백함수이다.  
+
+
+#### 예제) 타이머
+
+1초 주기로 실시간 현재 시간을 출력하는 예제이다.  
+writable로 구현하면 아래와 같다.
+
+#### writable
+```js
+import { writable } from 'svelte/store'
+
+export const time = writable(new Date()); // 초기값 new Date() 로 지정
+```
+
+```svelte
+<script>
+  import { onDestroy } from 'svelte'
+  import { time } from './store/writable'
+  let $time
+  const unsubscribe = time.subscribe((value) => $time = value)
+  let interval = setInterval(() => time.set(new Date()), 1000)
+
+  onDestroy(() => {
+    if (unsubscribe != null) unsubscribe()
+    if (interval != null) clearInterval(interval)
+  })
+
+  const formatter = new Intl.DateTimeFormat('en', {
+		hour12: true,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	})
+</script>
+<div>
+	<h4>현재 시각: {formatter.format($time)}</h4>
+</div>
+```
+
+#### Readable
+```js
+import { readable } from "svelte/store";
+
+export const time = readable(new Date(), function start(set) {
+  const interval = setInterval(() => set(new Date()), 1000) // 1초에 한번씩 초기화
+
+  /* 클린업 */
+  return function stop() {
+    clearInterval(interval);
+  }
+});
+```
+```svelte
+<script>
+	import { time } from '../store/readable'
+	const formatter = new Intl.DateTimeFormat('en', {
+		hour12: true,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	})
+</script>
+<div>
+	<h4>현재 시각: {formatter.format($time)}</h4>
+</div>
+```
 
 ### Derived
 
