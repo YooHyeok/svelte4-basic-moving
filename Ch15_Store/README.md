@@ -393,6 +393,68 @@ export const time = readable(new Date(), function start(set) {
 ```
 
 ### Derived
+Derived란 파생된, 유래된 뜻을 가진다.  
+기존 Store 값에서 파생된 값을 가공해서 사용할 수 있게 하는 기능이다.  
+즉, 기존에 있는 Store 값을 이용해서 새로운 값을 생성해주는 기능을 한다.  
+이때, 참조한 store의 값에는 아무런 영향을 주지 않는다.  
+구독 기반 계산을 통해 가장 최신의 store 값을 읽은 후 계산할 수 있다.  
+내부 구현방식은 다르지만 Vue의 computed와 비슷한 기능으로 캐싱 기능도 있다.  
+
+- 기본 문법
+  ```js
+  import { 다른스토어, derived } from 'svelte/store';
+  const 기존스토어명 = 다른스토어(/* 생략 */)
+  export const derivedEx = derived(기존스토어명, $기존스토어명 => {
+    $기존스토어명(변경코드반환)
+  })
+  ```
+  derived 내에서 참조할 store와 콜백 함수를 매개변수로 받아 콜백 함수 내에서 조작한 후 반환하는 형태가 된다.  
+  이때 콜백 함수 내에서 참조할 store를 사용할 때는 store 변수 앞에 $기호를 작성해야 한다.  
+  (자동 구독 되어 실시간으로 store의 현재값을 반환받는다.)  
+
+
+예를들어 auth라는 로그인 인증 store를 writable로 구현하였을때 로그인 여부를 매번 auth store에 $auth.인증토큰 으로 접근하여  
+값이 존재하는지 존재하지않는지를 체크하는것 보다 미리 계산시켜두고 계산된값만 구독하여 사용할수 있도록 편하게 사용할 수 있다.  
+```js
+import { writable, derived } from 'svelte/store';
+export const auth = writable({Authorization: null, /* 생략 */})
+export const isLogin = derived(auth, $auth => $auth.Authorization ? true:false)
+```
+
+#### 예제) 타이머와 경과시간
+```js
+import { readable, derived } from "svelte/store";
+
+const start = new Date(); /* 시작 시간 */
+
+export const time = readable(start, function start(set) {
+  const interval = setInterval(() => set(new Date()), 1000) // 1초에 한번씩 초기화
+
+  /* 클린업 */
+  return function stop() {
+    clearInterval(interval);
+  }
+});
+
+/* 경과시간(Derived Store) : (현재시간 - 시작시간) / 초단위 */
+export const elapsed = derived(time, $time => Math.round(($time - start) / 1000))
+```
+
+```svelte
+<script>
+	import { time, elapsed } from '../store/derived'
+	const formatter = new Intl.DateTimeFormat('en', {
+		hour12: true,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	})
+</script>
+<div>
+	<h4>현재 시각: {formatter.format($time)}</h4>
+	<p>현재 페이지가 열린지 {$elapsed}초가 지났습니다.</p> <!-- 경과 시간 elapsed -->
+</div>
+```
 
 </details>
 <br>
