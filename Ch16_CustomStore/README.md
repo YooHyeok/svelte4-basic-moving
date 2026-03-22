@@ -18,8 +18,8 @@
 # *[Ch12) LifeCycle01: Hook - onMount, onDestroy, beforeUpdate, afterUpdate](../Ch12_LifeCycle01_Hook/README.md)*
 # *[Ch13) LifeCycle02: 응용 - elizabot 활용 채팅, tick](../Ch13_LifeCycle02/README.md)*
 # *[Ch14) PropDrilling과 ContextAPI](../Ch14_ContextAPI/README.md)*
-# *[Ch15) Store](../Ch16_CustomStore/README.md)*
-# *Ch16) Custom Store와 bind, ConetxtAPI*
+# *[Ch15) Store](../Ch15_Store/README.md)*
+# *Ch16) Custom Store와 bind, ConetxtAPI 결합*
 <details>
 <summary>접기/펼치기</summary>
 <br>
