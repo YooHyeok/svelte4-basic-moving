@@ -3,7 +3,7 @@
 </script>
 
 <div>
-  <h1>3)class:지시문 - checkbox</h1>
+  <h1>3)class directive - checkbox</h1>
   <h3>테두리 선택</h3>
   <label>
       <input type="checkbox" bind:checked={border}> 실선

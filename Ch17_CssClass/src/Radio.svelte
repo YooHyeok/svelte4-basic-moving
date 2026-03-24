@@ -5,7 +5,7 @@
     let choice = 0;
 </script>
 <div>
-  <h1>4)class:지시문 - radio</h1>
+  <h1>4)class directive - radio</h1>
   <h3>테두리 선택</h3>
   {#each borders as border, i}
     <label>

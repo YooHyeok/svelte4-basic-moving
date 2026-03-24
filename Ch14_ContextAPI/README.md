@@ -139,3 +139,4 @@ svelte5의 룬($)문법을 사용하면 conetextAPI의 반응성을 유지시킬
 
 # *[Ch15) Store](../Ch15_Store/README.md)*
 # *[Ch16) CustomStore와 bind, ContextAPI 결합](../Ch16_CustomStore/README.md)*
+# *[Ch17) CssClass](../Ch17_CssClass/README.md)*
