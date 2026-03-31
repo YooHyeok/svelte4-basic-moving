@@ -451,6 +451,74 @@ crossfade는 `A영역 → B영역`으로 혹은 `B영역 → A영역`으로 와 
 </details>
 <br>
 
+## 이벤트와 수식어
+<details>
+<summary>접기/펼치기</summary>
+<br>
+
+1. 트랜지션 이벤트
+2. 트랜지션 
+
+### 트랜지션 이벤트
+Svelte는 자바스크립트에서는 제공하지 않는 트랜지션 이벤트(Transition Events)를 제공한다.  
+
+트랜지션 이벤트는 트랜지션이 언제 시작되고 끝나는지 알려준다.  
+
+- 트랜지션 이벤트 종류
+  | 이벤트명 | 설명 |
+  |-----------|------|
+  | introstart | 요소가 나타나는 트랜지션의 시작 이벤트이다. |
+  | introend | 요소가 나타나는 트랜지션의 종료 이벤트이다. |
+  | outrostart | 요소가 사라지는 트랜지션의 시작 이벤트이다. |
+  | outroend | 요소가 사라지는 트랜지션의 종료 이벤트이다. |
+
+```svelte
+<태그 on:트랜지션이벤트명={실행 문장 혹은 함수}>
+```
+
+### 트랜지션 수식어(Modifier)
+Svelte에서 이벤트 바인딩 문법을 사용할때 이벤트 옆에 파이프 문자(|)를 붙이고 수식어를 작성한다.
+
+```svelte
+<태그 on:트랜지션이벤트명|수식어={실행 문장 혹은 함수}>
+```
+
+#### 수식어 local
+트랜지션 이벤트에 존재하는 수식어로 local이 있다.  
+상위 템플릿 블록({#if} 혹은 {#each} 등)에 요소가 추가될 경우에만 트랜지션이 동작한다.  
+(여기서 말하는 상위 템플릿 블록은 트랜지션과 local이 적용된 요소가 속한 템플릿 블록의 상위 템플릿 블록을 말한다.)
+```svelte
+<태그 on:트랜지션이벤트명|local={실행 문장 혹은 함수}>
+```
+
+아래 예제는 체크박스와 range를 통해 트랜지션 효과를 부여한 예제이다.  
+slide이벤트이 local을 적용함으로써 showItems가 적용된 블록에서는 transition이 적용되지 않게 처리했다.  
+```svelte
+<script>
+  import { slide } from 'svelte/transition';
+
+  let showItems = true;
+  let i = 5;
+  let items = ['첫', '두', '세', '네', '다섯'];
+</script>
+
+<label>
+  <input type="checkbox" bind:checked={showItems}> 전부 보이게 처리
+</label>
+<label>
+  <input type="range" bind:value={i} max=5>
+</label>
+
+{#if showItems}
+  {#each items.slice(0, i) as item}
+    <div transition:slide|local>{item}번째 리스트</div>
+  {/each}
+{/if}
+```
+
+</details>
+<br>
+
 </details>
 <br>
 
