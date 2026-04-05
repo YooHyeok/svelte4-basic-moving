@@ -33,6 +33,7 @@
 1. 액션 기본 개념
 2. 액션 매개변수
 3. update & destroy
+4. Action 라이브러리 (Svelte Dnd Actions)
 
 ## 01) 액션 기본 사용법
  
@@ -165,6 +166,83 @@ Action의 생명주기 함수로 액션 함수의 return문에 작성한다.
 </div>
 ```
 
+## 04) Action 라이브러리 - Svelte Dnd Action
+Action을 이용한 함수는 직접 작성할 수도 있지만, 다른 개발자가 만든 라이브러리도 사용 가능하다.  
+Svelte Dnd Action는 요소를 드래그 앤 드롭 하는 라이브러리이다.  
+
+```bash
+npm install svelte-dnd-action
+```
+
+### svelte-dnd-action 커스텀 이벤트 동작 원리
+
+svelte-dnd-action은 Svelte의 Action(`use:`) 내부에서 **CustomEvent**를 dispatch하여 이벤트를 발생시킨다.  
+즉, 라이브러리가 직접 DOM 요소에 커스텀 이벤트를 쏘고, Svelte의 `on:이벤트명`으로 수신하는 구조이다.
+
+#### 이벤트 흐름
+```
+1. use:dndzone 액션이 DOM 요소에 바인딩
+2. 사용자가 드래그 시작 → 라이브러리가 el.dispatchEvent(new CustomEvent("consider")) 실행
+3. 사용자가 드롭 완료 → 라이브러리가 el.dispatchEvent(new CustomEvent("finalize")) 실행
+4. Svelte의 on:consider, on:finalize로 해당 이벤트를 수신
+```
+
+#### 라이브러리 내부 코드 (dispatch 부분)
+라이브러리 내부에서는 아래와 같이 `dispatchEvent`를 통해 커스텀 이벤트를 발생시킨다.  
+`detail` 객체에 변경된 `items` 배열과 `info`를 담아 전달한다.
+- node_modules/svelte-dnd-action/dist/index.js
+  ```js
+  var FINALIZE_EVENT_NAME = "finalize";
+  var CONSIDER_EVENT_NAME = "consider";
+
+  function dispatchFinalizeEvent(el, items, info) {
+    el.dispatchEvent(new CustomEvent(FINALIZE_EVENT_NAME, {
+      detail: { items: items, info: info }
+    }));
+  }
+
+  function dispatchConsiderEvent(el, items, info) {
+    el.dispatchEvent(new CustomEvent(CONSIDER_EVENT_NAME, {
+      detail: { items: items, info: info }
+    }));
+  }
+  ```
+
+#### 라이브러리 타입 정의
+- node_modules/svelte-dnd-action/dist/index.ts
+```ts
+export interface DndZoneAttributes<T> {
+  "on:consider"?: (e: CustomEvent<DndEvent<T>>) => void;
+  "on:finalize"?: (e: CustomEvent<DndEvent<T>>) => void;
+}
+```
+
+#### 사용자 코드에서 수신
+```svelte
+<section
+  use:dndzone={{items, flipDurationMs}}
+  on:consider={handleDndConsider}
+  on:finalize={handleDndFinalize}
+>
+```
+- `on:consider` → 드래그 중 항목 순서가 변경될 때마다 호출 (미리보기)
+- `on:finalize` → 드롭하여 최종 확정될 때 호출
+
+`e.detail.items`로 변경된 배열을 받아 상태를 업데이트하면 된다.
+```js
+const handleDndConsider = (e) => { items = e.detail.items }
+const handleDndFinalize = (e) => { items = e.detail.items }
+```
+
+#### 동작 요약
+1. `use:dndzone={{items}}` → 라이브러리에 items 배열 전달
+2. 사용자가 드래그 → 라이브러리 내부에서 items 순서 재정렬
+3. `dispatchEvent(new CustomEvent("consider", { detail: { items } }))` → 재정렬된 배열을 이벤트에 담아 dispatch
+4. `on:consider={handler}` → `e.detail.items`로 재정렬된 배열을 꺼냄
+5. `items = e.detail.items` → 상태 업데이트 → Svelte 반응성에 의해 DOM 갱신
+
+즉, 라이브러리가 직접 원본 `items`를 수정하는 것이 아니라 **내부에서 재정렬한 새 배열을 커스텀 이벤트를 통해 돌려주고**, 개발자가 `items = e.detail.items`로 직접 상태를 갱신하는 구조이다.  
+이렇게 하는 이유는 Svelte의 반응성은 **변수 재할당**을 통해 동작하기 때문에, 라이브러리가 임의로 원본을 수정하면 Svelte가 변경을 감지하지 못하기 때문이다.
 
 </details>
 <br>
