@@ -93,5 +93,6 @@ React나 Vue에서도 마찬가지로 외부 플러그인을 설치해야 한다
 # *[Ch19) Transition](../Ch19_Transition/README.md)*
 # *[Ch20) Animation](../Ch20_Animation/README.md)*
 # *[Ch21) Motion](../Ch21_Motion/README.md)*
-# *[Ch22) Action](../Ch22_Action/README.md)*
+# *[Ch22) Action](../Ch23_SpecialElement/README.md)*
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
+# *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*

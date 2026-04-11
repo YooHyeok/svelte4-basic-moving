@@ -145,5 +145,6 @@ key를 지정할 때 index를 생략할 수는 있지만 선언부 위치를 바
 # *[Ch19) Transition](../Ch19_Transition/README.md)*
 # *[Ch20) Animation](../Ch20_Animation/README.md)*
 # *[Ch21) Motion](../Ch21_Motion/README.md)*
-# *[Ch22) Action](../Ch22_Action/README.md)*
+# *[Ch22) Action](../Ch23_SpecialElement/README.md)*
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
+# *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*

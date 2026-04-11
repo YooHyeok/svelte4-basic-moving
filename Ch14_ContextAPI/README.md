@@ -144,5 +144,6 @@ svelte5의 룬($)문법을 사용하면 conetextAPI의 반응성을 유지시킬
 # *[Ch19) Transition](../Ch19_Transition/README.md)*
 # *[Ch20) Animation](../Ch20_Animation/README.md)*
 # *[Ch21) Motion](../Ch21_Motion/README.md)*
-# *[Ch22) Action](../Ch22_Action/README.md)*
+# *[Ch22) Action](../Ch23_SpecialElement/README.md)*
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
+# *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
