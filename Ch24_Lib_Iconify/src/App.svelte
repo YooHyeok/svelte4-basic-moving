@@ -1,30 +1,16 @@
 <script>
-	export let name;
+	import Icon from '@iconify/svelte'
 </script>
-
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
+<Icon icon='bi:airplane-engines-fill'/>
+<Icon icon='bi:arrow-through-heart-fill'/>
+<div class="box01">
+  <Icon icon='bi:airplane-engines-fill'/>
+</div>
+<div class="box02">
+  <Icon icon='bi:arrow-through-heart-fill'/>
+</div>
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+.box01 svg, .box02 svg{ width: 100px; height: 100px;}
+.box01 path { fill: red; }
+.box02 path { fill: blue; }
 </style>
