@@ -1,30 +1,28 @@
 <script>
-	export let name;
+	import { v4 as uuidv4 } from 'uuid'
+
+  let test = uuidv4();
+  const tests = [
+    {
+      id: uuidv4(),
+      name: '김범수'
+    },
+    {
+      id: uuidv4(),
+      name: '박효신'
+    },
+    {
+      id: uuidv4(),
+      name: '나얼'
+    },
+  ];
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<h1>{ uuidv4() }</h1>
+<h1>{ test }</h1>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<ul>
+  {#each tests as test}
+    <li>{test.id}<br>{test.name}</li>
+  {/each}
+</ul>
