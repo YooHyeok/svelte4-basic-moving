@@ -84,3 +84,4 @@ spring 함수는 값이 변경될 때 스프링처럼 관성을 이용해 움직
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
+# *[Ch26) Router](../Ch26_Router/README.md)*

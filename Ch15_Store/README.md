@@ -469,3 +469,4 @@ export const elapsed = derived(time, $time => Math.round(($time - start) / 1000)
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
+# *[Ch26) Router](../Ch26_Router/README.md)*

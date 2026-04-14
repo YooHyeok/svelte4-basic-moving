@@ -182,3 +182,4 @@ radio 타입의 bind:group에 할당한 변수에는 선택된 radio의 value값
 # *[Ch23) SpecialElement](../Ch23_SpecialElement/README.md)*
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
+# *[Ch26) Router](../Ch26_Router/README.md)*

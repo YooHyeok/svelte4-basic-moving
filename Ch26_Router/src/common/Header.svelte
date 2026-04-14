@@ -1,10 +1,12 @@
 <script>
-  import { Link, link, links } from "svelte-routing";
+  import { Link, link, links, Router } from "svelte-routing";
 </script>
 <header>
   <h1>헤더입니다.</h1>
   <ul>
-    <li><Link to="/">Home</Link></li>
+    <li><Router><Link to="/">Home</Link></Router></li>
+  </ul>
+  <ul>
     <li><a use:link href="/company">회사소개</a></li>
   </ul>
   <ul use:links>
