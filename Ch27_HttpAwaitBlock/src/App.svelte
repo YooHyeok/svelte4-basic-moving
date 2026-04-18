@@ -1,6 +1,7 @@
 <script>
   import FetchEachElse from './FetchEachElse.svelte';
   import AxiosEachElse from './AxiosEachElse.svelte';
+  import AxiosAwaitBlock from './AxiosAwaitBlock.svelte';
 </script>
 
 
@@ -9,6 +10,7 @@
 <div class="comments">
   <FetchEachElse />
   <AxiosEachElse />
+  <AxiosAwaitBlock />
 </div>
 <style>
   .comments {
