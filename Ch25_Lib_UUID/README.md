@@ -94,3 +94,4 @@ uuid 라이브러리의 v4의 options 설정 속성들과 그 외 버전 및 함
 <br>
 
 # *[Ch26) Router](../Ch26_Router/README.md)*
+# *[Ch27) HttpAxios](../Ch27_HttpAwaitBlock/README.md)*

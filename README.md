@@ -24,3 +24,6 @@
 # *[Ch22) Action](/Ch22_Action/README.md)*
 # *[Ch23) SpecialElement](/Ch23_SpecialElement/README.md)*
 # *[Ch24) Lib_Iconify](/Ch24_Lib_Iconify/README.md)*
+# *[Ch25) Lib_UUID](/Ch25_Lib_UUID/README.md)*
+# *[Ch26) Router](/Ch26_Router/README.md)*
+# *[Ch27) HttpAxios](/Ch27_HttpAwaitBlock/README.md)*

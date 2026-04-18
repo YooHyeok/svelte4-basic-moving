@@ -98,3 +98,4 @@ React나 Vue에서도 마찬가지로 외부 플러그인을 설치해야 한다
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
 # *[Ch26) Router](../Ch26_Router/README.md)*
+# *[Ch27) HttpAxios](../Ch27_HttpAwaitBlock/README.md)*
