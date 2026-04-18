@@ -233,4 +233,4 @@ button 뿐만 아니라 체크박스, 라디오 등을 조작하는 value에 해
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
 # *[Ch26) Router](../Ch26_Router/README.md)*
-# *[Ch27) HttpAxios](../Ch27_HttpAwaitBlock/README.md)*
+# *[Ch27) HttpAwaitBlock](../Ch27_HttpAwaitBlock/README.md)*

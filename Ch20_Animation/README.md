@@ -83,4 +83,4 @@ Each 블록의 바로 직계 자손 요소에만 적용이 가능하다.
 # *[Ch24) Lib_Iconify](../Ch24_Lib_Iconify/README.md)*
 # *[Ch25) Lib_UUID](../Ch25_Lib_UUID/README.md)*
 # *[Ch26) Router](../Ch26_Router/README.md)*
-# *[Ch27) HttpAxios](../Ch27_HttpAwaitBlock/README.md)*
+# *[Ch27) HttpAwaitBlock](../Ch27_HttpAwaitBlock/README.md)*

@@ -204,4 +204,4 @@ let parsed = queryString.parse(window.location.search)
 </details>
 <br>
 
-# *[Ch27) HttpAxios](../Ch27_HttpAwaitBlock/README.md)*
+# *[Ch27) HttpAwaitBlock](../Ch27_HttpAwaitBlock/README.md)*
