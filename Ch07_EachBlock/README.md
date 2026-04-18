@@ -128,6 +128,20 @@ key를 지정할 때 index를 생략할 수는 있지만 선언부 위치를 바
 {#each datas as data (data.id)}
 {/each}
 ```
+
+### 05) each~else
+each블록 내에 else블록을 사용할 수 있다.  
+each 블록에 선언한 배열의 길이가 0이거나 undefined 혹은 null 과 같이 값이 falsy일 경우 else블록이 실행된다.  
+```svelte
+<script>
+  let datas = []
+</script>
+{#each datas as data, index (data.id)}
+{:else}
+  <p>falsy</p>
+{/each}
+```
+
 </details>
 <br>
 
