@@ -40,7 +40,6 @@
 
 	import { v4 as uuidv4 } from 'uuid'
   let bucketText = '';
-  const onDataChange = e => bucketText = e.target.value;
   const onSubmit = (e) => {
     e.preventDefault();
     if (bucketText) {
@@ -61,6 +60,6 @@
 		{editMode} {onEditMode} {onEditKeyup}
 	/>
 	<BucketCreate 
-		{bucketText} {onDataChange} {onSubmit}
+		bind:bucketText {onSubmit}
 	/>
 </div>

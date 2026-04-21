@@ -1,7 +1,6 @@
 <script>
   import Icon from "@iconify/svelte"
   export let bucketText;
-  export let onDataChange;
   export let onSubmit;
   let open = false;
   const onToggle = () => {
@@ -17,7 +16,6 @@
     <form on:submit={(e) => {onSubmit(e); onClose();}}>
       <input 
         type="text" 
-        on:change={onDataChange}
         bind:value={bucketText}
         placeholder="추가할 버킷리스트를 입력 후, Enter를 누르세요."
       >
