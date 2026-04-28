@@ -25,11 +25,50 @@ const setBestData = () => {
       return datas;
     })
   }
+  const onSubmit = (bestTexts) => {
+    if (bestTexts) {
+      const best = {
+        id: uuidv4(),
+        name: bestTexts.name,
+        price: bestTexts.price,
+        image: bestTexts.image,
+        descript: bestTexts.descript,
+        like: false
+      }
+      update(datas => {
+        console.debug(datas)
+        datas.push(best)
+        return datas;
+      })
+    }
+  }
   return {
     subscribe,
     onToggle,
-    onRemove
+    onRemove,
+    onSubmit
+  }
+}
+
+const setFormBest = () => {
+  let formText = {
+    name: '',
+    price: '',
+    image: '',
+    descript: ''
+  }
+  const { subscribe, update, set } = writable(formText);
+
+  const resetForm = () => {
+    set({ name: '', price: '', image: '', descript: '' })
+  }  
+
+  return {
+    subscribe,
+    set,
+    resetForm,
   }
 }
 
 export const bests = setBestData();
+export const bestTexts = setFormBest();

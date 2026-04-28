@@ -1,4 +1,5 @@
 <script>
+  import { bests, bestTexts } from "../store"
   import Icon from "@iconify/svelte"
   import { v4 as uuidv4 } from "uuid"
   const id01 = uuidv4();
@@ -6,21 +7,30 @@
   const id03 = uuidv4();
   const id04 = uuidv4();
   let open = false;
-  const onToggle = () => open = !open 
+  const onToggle = () => {
+    open = !open 
+    if (!open) {
+      bestTexts.resetForm();
+    }
+  }
+  const onSubmit = () => {
+    bests.onSubmit($bestTexts)
+    onToggle();
+  }
 </script>
 <div>
-  <form class="createform" class:active={open}>
+  <form class="createform" class:active={open} on:submit|preventDefault={onSubmit}>
     <fieldset>
       <legend>여행 추가하기</legend>
       <label for={id01}>여행명 : </label>
-      <input type="text" id={id01} name="name" required>
+      <input type="text" id={id01} name="name" required bind:value={$bestTexts.name}>
       <label for={id02}>가격 : </label>
-      <input type="text" id={id02} name="price" required placeholder="숫자로만 입력하세요">
+      <input type="text" id={id02} name="price" required bind:value={$bestTexts.price} placeholder="숫자로만 입력하세요">
       <label for={id03}>이미지경로 : </label>
-      <input type="text" id={id03} name="image" required>
+      <input type="text" id={id03} name="image" required bind:value={$bestTexts.image}>
       <br>
       <label for={id04} class="dlabel">설명 : </label>
-      <textarea row="5" name="descript" id={id04} required/>
+      <textarea row="5" name="descript" id={id04} required bind:value={$bestTexts.descript}/>
       <br>
       <button type="submit">여행추가하기</button>
     </fieldset>
