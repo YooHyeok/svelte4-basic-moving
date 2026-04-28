@@ -5,9 +5,11 @@
   const id02 = uuidv4();
   const id03 = uuidv4();
   const id04 = uuidv4();
+  let open = false;
+  const onToggle = () => open = !open 
 </script>
 <div>
-  <form class="createform" class:active={true}>
+  <form class="createform" class:active={open}>
     <fieldset>
       <legend>여행 추가하기</legend>
       <label for={id01}>여행명 : </label>
@@ -23,7 +25,7 @@
       <button type="submit">여행추가하기</button>
     </fieldset>
   </form>
-  <button class="circlebox">
+  <button class="circlebox" on:click={onToggle}>
     <Icon icon="ic:round-add" />
   </button>
 </div>
