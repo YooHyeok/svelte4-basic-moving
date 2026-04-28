@@ -291,35 +291,6 @@ set 함수는 콜스택에 쌓이는 함수 내에서 초기화 즉, 딱 1회성
 </script>
 ```
 
-#### 자동구독과 양방향 바인딩 (set 반환)
-커스텀 스토어에서 `$`키워드를 통한 자동 구독 문법은 `bind:value={$store}` 형태와 같이 양방향 바인딩도 가능하다.  
-이때 반드시 `set`을 반환해야 한다.  
-`$store`에 값을 할당하면 내부적으로 `store.set(값)`이 호출되기 때문이다.  
-`subscribe`만 반환하면 값을 읽을 수는 있지만 쓰기가 불가능하여 에러가 발생한다.  
-
-| 반환값 | `$store` 읽기 | `$store` 쓰기 (`bind` 등) |
-|--------|--------------|--------------------------|
-| `subscribe`만 | ⭕ | ❌ (`set is not a function`) |
-| `subscribe` + `set` | ⭕ | ⭕ |
-
-```js
-import { writable } from 'svelte/store';
-const { subscribe, set } = writable('')
-export const exStore = { 
-  subscribe,  // $exStore 읽기용
-  set,         // $exStore 쓰기용 (bind 사용 시 필수)
-}
-```
-```svelte
-<script>
-  import { exStore } from './store/index.js'
-</script>
-<!-- set이 반환되어 있으므로 양방향 바인딩 가능 -->
-<input bind:value={$exStore} />
-```
-
-`$`키워드는 `.svelte` 파일에서만 사용 가능하며, `.js` 파일에서는 `store.set(값)` 또는 커스텀 메서드를 통해 값을 변경해야 한다.  
-
 ### Readable
 읽기 전용 Store로 현재 시간, 사용자 위치, 마우스 위치 등 수정이 필요하지 않은Store 를 선언할 때 사용한다.  
 

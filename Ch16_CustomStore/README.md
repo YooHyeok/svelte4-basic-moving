@@ -74,6 +74,34 @@ export const store = writable(초기값)
 <input type="text" bind:value={$store} />
 ```
 
+#### 커스텀 스토어에서의 set 반환
+커스텀 스토어를 작성할 때 `bind:value={$store}` 형태의 양방향 바인딩을 사용하려면 반드시 `set`을 반환해야 한다.  
+`$store`에 값을 할당하면 내부적으로 `store.set(값)`이 호출되기 때문이다.  
+`subscribe`만 반환하면 값을 읽을 수는 있지만 쓰기가 불가능하여 `set is not a function` 에러가 발생한다.  
+
+| 반환값 | `$store` 읽기 | `$store` 쓰기 (`bind` 등) |
+|--------|--------------|--------------------------|
+| `subscribe`만 | ⭕ | ❌ (`set is not a function`) |
+| `subscribe` + `set` | ⭕ | ⭕ |
+
+```js
+import { writable } from 'svelte/store';
+const { subscribe, set } = writable('')
+export const exStore = {
+  subscribe,  // $exStore 읽기용
+  set,         // $exStore 쓰기용 (bind 사용 시 필수)
+}
+```
+```svelte
+<script>
+  import { exStore } from './store/index.js'
+</script>
+<!-- set이 반환되어 있으므로 양방향 바인딩 가능 -->
+<input bind:value={$exStore} />
+```
+
+`$`키워드는 `.svelte` 파일에서만 사용 가능하며, `.js` 파일에서는 `store.set(값)` 또는 커스텀 메서드를 통해 값을 변경해야 한다.  
+
 이때 초기값은 무조건 primitive 타입이어야 한다.  
 만약 객체타입으로 초기값을 지정한 후 특정 속성에 도트연산으로 접근하여 bind할 경우 내부적으로 set이 호출되면서 전체 객체가 교체되어 다른 속성이 존재한다면 접근한 속성 외 다른 속성은 모두 사라지게 된다.  
 ```js
