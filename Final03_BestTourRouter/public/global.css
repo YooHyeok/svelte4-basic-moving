@@ -1,63 +1,302 @@
-html, body {
-	position: relative;
-	width: 100%;
-	height: 100%;
+* {
+	padding: 0;
+	margin: 0;
+	color: #333;
 }
 
-body {
-	color: #333;
-	margin: 0;
-	padding: 8px;
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+li {
+	list-style: none;
 }
 
 a {
-	color: rgb(0,100,200);
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
 
-a:visited {
-	color: rgb(0,80,160);
-}
-
-label {
-	display: block;
-}
-
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
+/* bestbox */
+.bestbox {
+	width: 1180px;
+	margin: 0 auto;
+	padding: 10px 10px 90px;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+	position: relative;
+	/* +/x 자버튼 위치 컨트롤 */
 }
 
-input:disabled {
-	color: #ccc;
+.bestbox h2 {
+	height: 70px;
+	font-size: 30px;
+	line-height: 70px;
+	text-align: center;
 }
 
-button {
-	color: #333;
-	background-color: #f4f4f4;
+.bestbox ul {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.bestbox li {
+	float: left;
+	width: 270px;
+	height: 270px;
+	margin: 10px;
+	position: relative;
+}
+
+.bestbox li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.bestbox li:hover .box {
+	opacity: 1;
+}
+
+.bestbox li img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.bestbox li .likebox {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	z-index: 100;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.bestbox li .likebox svg {
+	width: 24px;
+	height: 24px;
+}
+
+.bestbox li .likebox path {
+	color: #e51a92;
+}
+
+.bestbox .box {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-align: center;
+	padding: 40px 20px;
+	box-sizing: border-box;
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.bestbox .box>*,
+.bestbox .box a {
+	color: #fff;
+}
+
+.bestbox .box h3 {
+	height: 70px;
+	font-size: 30px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.bestbox .box h4 {
+	height: 70px;
+	font-size: 19px;
+}
+
+.bestbox .box h5 {
+	height: 40px;
+	font-size: 16px;
+}
+
+.bestbox .box p {
+	font-size: 14px;
+}
+
+.bestbox .box button {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+	margin: 0 auto;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.bestbox .box button svg {
+	width: 24px;
+	height: 24px;
+}
+
+.bestbox .box button path {
+	color: #fff;
+}
+
+
+/* BestCreate */
+.createform {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 0 10px;
+	box-sizing: border-box;
+	transform: translateY(100%) scaleY(0);
+	transform-origin: center top;
+	transition: 0.3s;
+}
+
+.createform.active {
+	transform: translateY(100%) scaleY(1);
+}
+
+.createform.active+.circlebox {
+	/* 회전되서 빨간색X */
+	background: #fa5252;
+	transform: rotate(45deg);
+	/* 회전처리 */
+}
+
+.createform legend {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.createform fieldset {
+	padding: 20px;
+}
+
+.createform input {
+	width: 260px;
+	height: 30px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	color: #000;
+	margin-bottom: 20px;
+	margin-right: 30px;
+}
+
+.createform textarea {
+	width: 601px;
+	padding: 10px;
+	margin-bottom: 20px;
+	color: #000;
+}
+
+.createform .dlabel {
+	position: relative;
+	top: -70px;
+	margin-right: 16px;
+}
+
+.createform button {
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+	height: 40px;
+	background-color: #e51a92;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	line-height: 39px;
+	cursor: pointer;
+}
+
+.createform input:focus,
+.createform textarea:focus {
+	background-color: lightyellow;
+}
+
+.circlebox {
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	z-index: 5;
+	width: 80px;
+	height: 80px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	border-radius: 50%;
+	border: none;
 	outline: none;
+	background: #e51a92;
+	font-size: 60px;
+	transition: 0.125s all ease-in;
+	/* X자로 회전시 자연스럽게 처리 */
 }
 
-button:disabled {
-	color: #999;
+.circlebox:hover {
+	background: #ff46b3;
 }
 
-button:not(:disabled):active {
-	background-color: #ddd;
+.circlebox path {
+	color: #fff;
 }
 
-button:focus {
-	border-color: #666;
+/* bestpage */
+.bestpage {
+	display: flex;
+	width: 100%;
+	padding-top: 10px;
+	justify-content: space-between;
+}
+
+.bestpage>img {
+	width: calc(50% - 10px);
+}
+
+.bestpage .textwrap {
+	width: calc(50% - 10px);
+	padding: 20px 0;
+	position: relative;
+}
+
+.bestpage h4 {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.bestpage h4 svg {
+	position: relative;
+	top: 2px;
+}
+
+.bestpage h4 path {
+	color: #e51a92;
+}
+
+.bestpage p {
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+.bestpage span {
+	font-weight: bold;
+}
+
+.bestpage button {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 150px;
+	height: 40px;
+	border: none;
+	background-color: #e51a92;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
 }
