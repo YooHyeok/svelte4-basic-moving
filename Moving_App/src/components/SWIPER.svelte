@@ -21,7 +21,10 @@
 </script>
 
 <div class="photo">
-	<Swiper
+  {#await promise}
+	 <p>loading...</p>
+  {:then value}
+    <Swiper
     modules={[Navigation, Pagination]}
     spaceBetween={50}
     slidesPerView={5}
@@ -29,12 +32,15 @@
     navigation
     pagination={{ clickable: true }}
   >
-    {#each urls as url, i}
+    {#each value.data.results as movie, i}
        <SwiperSlide>
-          <img src={url} alt="여행이미지" width="300">
+          <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="여행이미지" width="300">
        </SwiperSlide>
     {/each}
   </Swiper>
+  {:catch error}
+    <p>{error.message} : 에러가 발생되었습니다.</p>
+  {/await}
 </div>
 
 <style>

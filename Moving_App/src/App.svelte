@@ -1,6 +1,4 @@
 <script>
-	import SWIPER from './components/SWIPER.svelte';
-	import TMDB from './components/TMDB.svelte';
-</script>
-<SWIPER/>
-<TMDB/>
+    import Example from "./components/Example.svelte";	
+	</script>
+	<Example/>
