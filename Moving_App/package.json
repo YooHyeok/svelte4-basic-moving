@@ -24,6 +24,7 @@
     "axios": "^1.15.2",
     "sirv-cli": "^2.0.0",
     "svelte-loading-spinners": "^0.3.6",
+    "svelte-routing": "^2.13.0",
     "swiper": "^8.3.0"
   }
 }
