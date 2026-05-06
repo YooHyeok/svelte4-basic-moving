@@ -1,6 +1,4 @@
 <script>
-
+  import MainListContainer from "../containers/MainListContainer.svelte";
 </script>
-<div class="sub_page">
-  <h1>메인페이지영역</h1>
-</div>
+<MainListContainer/>
