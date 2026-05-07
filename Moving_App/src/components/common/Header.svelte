@@ -25,7 +25,7 @@
   
 </script>
 <header class:active>
-  <h1><a href="/" class:active={current === ''} on:click={() => current = ''}><img src="./img/moving_logo.svg" alt="무빙로고"></a></h1>
+  <h1><a href="/" class:active={current === ''} on:click={() => current = ''}><img src="/img/moving_logo.svg" alt="무빙로고"></a></h1>
   <ul use:links>
     <li>
       <Icon icon="ic:round-live-tv" color="white" height="28" />
