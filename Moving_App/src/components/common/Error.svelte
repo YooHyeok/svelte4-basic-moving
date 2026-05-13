@@ -13,6 +13,6 @@
   <a href="#!">고객센터문의하기 &gt;</a>
   <p class="inquiry_explain">전화 : 0000-0000(평일 09시~18시) / 이메일 moving@gmail.com</p>
   <ul class="page_btn">
-    <li><a href="/" use:link>메인페이지로 이동</a></li>
+    <li><a href="/svelte4-basic-moving/" use:link>메인페이지로 이동</a></li>
   </ul>
 </div>

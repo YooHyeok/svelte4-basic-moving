@@ -26,15 +26,15 @@
 
 <Header />
 <Router {url}>
-	<Route path="/" component={MainPage}/>
-	<Route path="/now" component={NowPage}/>
-	<Route path="/popular" component={PopularPage}/>
-	<Route path="/upcoming" component={UpcomingPage}/>
-	<Route path="/top" component={TopPage}/>
+	<Route path="/svelte4-basic-moving" component={MainPage}/>
+	<Route path="/svelte4-basic-moving/now" component={NowPage}/>
+	<Route path="/svelte4-basic-moving/popular" component={PopularPage}/>
+	<Route path="/svelte4-basic-moving/upcoming" component={UpcomingPage}/>
+	<Route path="/svelte4-basic-moving/top" component={TopPage}/>
 
-	<Route path="/now/:id" component={NowSubPage}/>
-	<Route path="/popular/:id" component={PopularSubPage}/>
-	<Route path="/upcoming/:id" component={UpcomingSubPage}/>
-	<Route path="/top/:id" component={TopSubPage}/>
+	<Route path="/svelte4-basic-moving/now/:id" component={NowSubPage}/>
+	<Route path="/svelte4-basic-moving/popular/:id" component={PopularSubPage}/>
+	<Route path="/svelte4-basic-moving/upcoming/:id" component={UpcomingSubPage}/>
+	<Route path="/svelte4-basic-moving/top/:id" component={TopSubPage}/>
 </Router>
 <Footer />

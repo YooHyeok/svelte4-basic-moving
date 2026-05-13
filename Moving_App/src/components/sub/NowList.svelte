@@ -20,7 +20,7 @@
   >
     {#each datas as now, index (now)}
       <SwiperSlide>
-        <a href="{`/now/${now.id}`}">
+        <a href="{`/svelte4-basic-moving/now/${now.id}`}">
           <figure>
             <div class="img_wrap">
               <img src={`https://image.tmdb.org/t/p/original/${now.poster_path}`} alt={now.title}>

@@ -1,5 +1,5 @@
 <script>
-  import { links } from "svelte-routing"
+  import { links, link } from "svelte-routing"
   import Icon from "@iconify/svelte"
   import { onMount } from "svelte";
 
@@ -25,20 +25,20 @@
   
 </script>
 <header class:active>
-  <h1><a href="/" class:active={current === ''} on:click={() => current = ''}><img src="/img/moving_logo.svg" alt="무빙로고"></a></h1>
+  <h1><a href="/svelte4-basic-moving" use:link class:active={current === ''} on:click={() => current = ''}><img src="img/moving_logo.svg" alt="무빙로고"></a></h1>
   <ul use:links>
     <li>
       <Icon icon="ic:round-live-tv" color="white" height="28" />
-      <a href="/now" class:active={current === 'now'} on:click={() => current = 'now'}>현재상영작</a>
+      <a href="/svelte4-basic-moving/now" class:active={current === 'now'} on:click={() => current = 'now'}>현재상영작</a>
     </li>
     <li>
-      <a href="/popular" class:active={current === 'popular'} on:click={() => current = 'popular'}>인기영화</a>
+      <a href="/svelte4-basic-moving/popular" class:active={current === 'popular'} on:click={() => current = 'popular'}>인기영화</a>
     </li>
     <li>
-      <a href="/upcoming" class:active={current === 'upcoming'} on:click={() => current = 'upcoming'}>개봉예정작</a>
+      <a href="/svelte4-basic-moving/upcoming" class:active={current === 'upcoming'} on:click={() => current = 'upcoming'}>개봉예정작</a>
     </li>
     <li>
-      <a href="/top" class:active={current === 'top'} on:click={() => current = 'top'}>높은평점</a>
+      <a href="/svelte4-basic-moving/top" class:active={current === 'top'} on:click={() => current = 'top'}>높은평점</a>
     </li>
   </ul>
 </header>
