@@ -10,7 +10,6 @@
   })
   const { genre_ids, original_title, overview, poster_path, backdrop_path, release_date, title } = data[0]
   let genre_ko_ids = [];
-  console.log(genres)
   for (let i in genre_ids) {
     for (let j in genres) {
       if (genre_ids[i] === genres[j].id)
