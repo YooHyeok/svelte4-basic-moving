@@ -54,7 +54,7 @@
             {main.overview}
           {/if}
         </p>
-        <a href={`/now/${main.id}`} use:link>자세히보기</a>
+        <a href={`${CONFIG.BASE_URL}/now/${main.id}`} use:link>자세히보기</a>
       </SwiperSlide>
     {/each}
   </Swiper>

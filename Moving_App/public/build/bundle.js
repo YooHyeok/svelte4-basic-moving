@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
 	'use strict';
 
@@ -18544,15 +18544,19 @@ var app = (function () {
 		let icon;
 		let t1;
 		let a1;
+		let t2;
 		let t3;
 		let li1;
 		let a2;
+		let t4;
 		let t5;
 		let li2;
 		let a3;
+		let t6;
 		let t7;
 		let li3;
 		let a4;
+		let t8;
 		let current;
 		let mounted;
 		let dispose;
@@ -18578,42 +18582,42 @@ var app = (function () {
 				create_component(icon.$$.fragment);
 				t1 = space();
 				a1 = element("a");
-				a1.textContent = "현재상영작";
+				t2 = text$1("현재상영작");
 				t3 = space();
 				li1 = element("li");
 				a2 = element("a");
-				a2.textContent = "인기영화";
+				t4 = text$1("인기영화");
 				t5 = space();
 				li2 = element("li");
 				a3 = element("a");
-				a3.textContent = "개봉예정작";
+				t6 = text$1("개봉예정작");
 				t7 = space();
 				li3 = element("li");
 				a4 = element("a");
-				a4.textContent = "높은평점";
+				t8 = text$1("높은평점");
 				if (!src_url_equal(img.src, img_src_value = "img/moving_logo.svg")) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "alt", "무빙로고");
 				add_location(img, file$g, 27, 107, 744);
-				attr_dev(a0, "href", "/svelte4-basic-moving");
+				attr_dev(a0, "href", `${CONFIG.BASE_URL}/`);
 				toggle_class(a0, "active", /*current*/ ctx[1] === '');
 				add_location(a0, file$g, 27, 6, 643);
 				add_location(h1, file$g, 27, 2, 639);
-				attr_dev(a1, "href", "/svelte4-basic-moving/now");
+				attr_dev(a1, "href", `${CONFIG.BASE_URL}/now`);
 				toggle_class(a1, "active", /*current*/ ctx[1] === 'now');
 				add_location(a1, file$g, 31, 6, 897);
 				add_location(li0, file$g, 29, 4, 819);
-				attr_dev(a2, "href", "/svelte4-basic-moving/popular");
+				attr_dev(a2, "href", `${CONFIG.BASE_URL}/popular`);
 				toggle_class(a2, "active", /*current*/ ctx[1] === 'popular');
-				add_location(a2, file$g, 34, 6, 1037);
-				add_location(li1, file$g, 33, 4, 1025);
-				attr_dev(a3, "href", "/svelte4-basic-moving/upcoming");
+				add_location(a2, file$g, 34, 6, 1036);
+				add_location(li1, file$g, 33, 4, 1024);
+				attr_dev(a3, "href", `${CONFIG.BASE_URL}/upcoming`);
 				toggle_class(a3, "active", /*current*/ ctx[1] === 'upcoming');
-				add_location(a3, file$g, 37, 6, 1188);
-				add_location(li2, file$g, 36, 4, 1176);
-				attr_dev(a4, "href", "/svelte4-basic-moving/top");
+				add_location(a3, file$g, 37, 6, 1186);
+				add_location(li2, file$g, 36, 4, 1174);
+				attr_dev(a4, "href", `${CONFIG.BASE_URL}/top`);
 				toggle_class(a4, "active", /*current*/ ctx[1] === 'top');
-				add_location(a4, file$g, 40, 6, 1343);
-				add_location(li3, file$g, 39, 4, 1331);
+				add_location(a4, file$g, 40, 6, 1340);
+				add_location(li3, file$g, 39, 4, 1328);
 				add_location(ul, file$g, 28, 2, 799);
 				toggle_class(header, "active", /*active*/ ctx[0]);
 				add_location(header, file$g, 26, 0, 614);
@@ -18632,15 +18636,19 @@ var app = (function () {
 				mount_component(icon, li0, null);
 				append_dev(li0, t1);
 				append_dev(li0, a1);
+				append_dev(a1, t2);
 				append_dev(ul, t3);
 				append_dev(ul, li1);
 				append_dev(li1, a2);
+				append_dev(a2, t4);
 				append_dev(ul, t5);
 				append_dev(ul, li2);
 				append_dev(li2, a3);
+				append_dev(a3, t6);
 				append_dev(ul, t7);
 				append_dev(ul, li3);
 				append_dev(li3, a4);
+				append_dev(a4, t8);
 				current = true;
 
 				if (!mounted) {
@@ -19989,7 +19997,7 @@ var app = (function () {
 				add_location(img, file$b, 47, 8, 1129);
 				add_location(h3, file$b, 48, 8, 1227);
 				add_location(p, file$b, 49, 8, 1258);
-				attr_dev(a, "href", a_href_value = `/now/${/*main*/ ctx[7].id}`);
+				attr_dev(a, "href", a_href_value = `${CONFIG.BASE_URL}/now/${/*main*/ ctx[7].id}`);
 				add_location(a, file$b, 56, 8, 1432);
 			},
 			m: function mount(target, anchor) {
@@ -20033,7 +20041,7 @@ var app = (function () {
 					}
 				}
 
-				if (dirty & /*mains*/ 1 && a_href_value !== (a_href_value = `/now/${/*main*/ ctx[7].id}`)) {
+				if (dirty & /*mains*/ 1 && a_href_value !== (a_href_value = `${CONFIG.BASE_URL}/now/${/*main*/ ctx[7].id}`)) {
 					attr_dev(a, "href", a_href_value);
 				}
 			},
@@ -20167,7 +20175,7 @@ var app = (function () {
 				current = true;
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*mains*/ 1) {
+				if (dirty & /*CONFIG, mains*/ 1) {
 					each_value = ensure_array_like_dev(/*mains*/ ctx[0]);
 					group_outros();
 					validate_each_keys(ctx, each_value, get_each_context$6, get_key);
@@ -20251,12 +20259,12 @@ var app = (function () {
 				button1.innerHTML = ``;
 				attr_dev(button0, "class", "btn_pause");
 				toggle_class(button0, "active", /*cnt*/ ctx[2] === true);
-				add_location(button0, file$b, 61, 4, 1566);
+				add_location(button0, file$b, 61, 4, 1584);
 				attr_dev(button1, "class", "btn_play");
 				toggle_class(button1, "active", /*cnt*/ ctx[2] === false);
-				add_location(button1, file$b, 67, 4, 1693);
+				add_location(button1, file$b, 67, 4, 1711);
 				attr_dev(div, "class", "swiper-playpause");
-				add_location(div, file$b, 60, 2, 1530);
+				add_location(div, file$b, 60, 2, 1548);
 				add_location(main_1, file$b, 33, 0, 802);
 			},
 			l: function claim(nodes) {
@@ -20758,10 +20766,10 @@ var app = (function () {
 				figcaption = element("figcaption");
 				t1 = space();
 				attr_dev(div, "class", "img_wrap");
-				add_location(div, file$a, 21, 10, 536);
-				add_location(figcaption, file$a, 22, 10, 576);
+				add_location(div, file$a, 21, 10, 535);
+				add_location(figcaption, file$a, 22, 10, 575);
 				attr_dev(figure, "class", "ex");
-				add_location(figure, file$a, 20, 8, 505);
+				add_location(figure, file$a, 20, 8, 504);
 			},
 			m: function mount(target, anchor) {
 				insert_dev(target, figure, anchor);
@@ -20940,9 +20948,9 @@ var app = (function () {
 				t1 = space();
 				create_component(swiper.$$.fragment);
 				attr_dev(h2, "class", "ex");
-				add_location(h2, file$a, 11, 2, 289);
+				add_location(h2, file$a, 11, 2, 288);
 				attr_dev(section, "class", "list_box");
-				add_location(section, file$a, 10, 0, 259);
+				add_location(section, file$a, 10, 0, 258);
 			},
 			l: function claim(nodes) {
 				throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21171,12 +21179,12 @@ var app = (function () {
 				t2 = space();
 				if (!src_url_equal(img.src, img_src_value = `https://image.tmdb.org/t/p/original/${/*now*/ ctx[1].poster_path}`)) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "alt", img_alt_value = /*now*/ ctx[1].title);
-				add_location(img, file$8, 25, 14, 674);
+				add_location(img, file$8, 25, 14, 671);
 				attr_dev(div, "class", "img_wrap");
-				add_location(div, file$8, 24, 12, 636);
-				add_location(figcaption, file$8, 27, 12, 792);
-				add_location(figure, file$8, 23, 10, 614);
-				attr_dev(a, "href", a_href_value = `/svelte4-basic-moving/now/${/*now*/ ctx[1].id}`);
+				add_location(div, file$8, 24, 12, 633);
+				add_location(figcaption, file$8, 27, 12, 789);
+				add_location(figure, file$8, 23, 10, 611);
+				attr_dev(a, "href", a_href_value = `${CONFIG.BASE_URL}/now/${/*now*/ ctx[1].id}`);
 				add_location(a, file$8, 22, 8, 552);
 			},
 			m: function mount(target, anchor) {
@@ -21200,7 +21208,7 @@ var app = (function () {
 
 				if (dirty & /*datas*/ 1 && t1_value !== (t1_value = /*now*/ ctx[1].title + "")) set_data_dev(t1, t1_value);
 
-				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `/svelte4-basic-moving/now/${/*now*/ ctx[1].id}`)) {
+				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `${CONFIG.BASE_URL}/now/${/*now*/ ctx[1].id}`)) {
 					attr_dev(a, "href", a_href_value);
 				}
 			},
@@ -21324,7 +21332,7 @@ var app = (function () {
 				current = true;
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*datas*/ 1) {
+				if (dirty & /*CONFIG, datas*/ 1) {
 					each_value = ensure_array_like_dev(/*datas*/ ctx[0]);
 					group_outros();
 					validate_each_keys(ctx, each_value, get_each_context$4, get_key);
@@ -21803,12 +21811,12 @@ var app = (function () {
 				t2 = space();
 				if (!src_url_equal(img.src, img_src_value = `https://image.tmdb.org/t/p/original/${/*now*/ ctx[1].poster_path}`)) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "alt", img_alt_value = /*now*/ ctx[1].title);
-				add_location(img, file$7, 25, 14, 679);
+				add_location(img, file$7, 25, 14, 676);
 				attr_dev(div, "class", "img_wrap");
-				add_location(div, file$7, 24, 12, 641);
-				add_location(figcaption, file$7, 27, 12, 797);
-				add_location(figure, file$7, 23, 10, 619);
-				attr_dev(a, "href", a_href_value = `/svelte4-basic-moving/popular/${/*now*/ ctx[1].id}`);
+				add_location(div, file$7, 24, 12, 638);
+				add_location(figcaption, file$7, 27, 12, 794);
+				add_location(figure, file$7, 23, 10, 616);
+				attr_dev(a, "href", a_href_value = `${CONFIG.BASE_URL}/popular/${/*now*/ ctx[1].id}`);
 				add_location(a, file$7, 22, 8, 553);
 			},
 			m: function mount(target, anchor) {
@@ -21832,7 +21840,7 @@ var app = (function () {
 
 				if (dirty & /*datas*/ 1 && t1_value !== (t1_value = /*now*/ ctx[1].title + "")) set_data_dev(t1, t1_value);
 
-				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `/svelte4-basic-moving/popular/${/*now*/ ctx[1].id}`)) {
+				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `${CONFIG.BASE_URL}/popular/${/*now*/ ctx[1].id}`)) {
 					attr_dev(a, "href", a_href_value);
 				}
 			},
@@ -21956,7 +21964,7 @@ var app = (function () {
 				current = true;
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*datas*/ 1) {
+				if (dirty & /*CONFIG, datas*/ 1) {
 					each_value = ensure_array_like_dev(/*datas*/ ctx[0]);
 					group_outros();
 					validate_each_keys(ctx, each_value, get_each_context$3, get_key);
@@ -22435,12 +22443,12 @@ var app = (function () {
 				t2 = space();
 				if (!src_url_equal(img.src, img_src_value = `https://image.tmdb.org/t/p/original/${/*now*/ ctx[1].poster_path}`)) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "alt", img_alt_value = /*now*/ ctx[1].title);
-				add_location(img, file$6, 25, 14, 680);
+				add_location(img, file$6, 25, 14, 677);
 				attr_dev(div, "class", "img_wrap");
-				add_location(div, file$6, 24, 12, 642);
-				add_location(figcaption, file$6, 27, 12, 798);
-				add_location(figure, file$6, 23, 10, 620);
-				attr_dev(a, "href", a_href_value = `/svelte4-basic-moving/upcoming/${/*now*/ ctx[1].id}`);
+				add_location(div, file$6, 24, 12, 639);
+				add_location(figcaption, file$6, 27, 12, 795);
+				add_location(figure, file$6, 23, 10, 617);
+				attr_dev(a, "href", a_href_value = `${CONFIG.BASE_URL}/upcoming/${/*now*/ ctx[1].id}`);
 				add_location(a, file$6, 22, 8, 553);
 			},
 			m: function mount(target, anchor) {
@@ -22464,7 +22472,7 @@ var app = (function () {
 
 				if (dirty & /*datas*/ 1 && t1_value !== (t1_value = /*now*/ ctx[1].title + "")) set_data_dev(t1, t1_value);
 
-				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `/svelte4-basic-moving/upcoming/${/*now*/ ctx[1].id}`)) {
+				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `${CONFIG.BASE_URL}/upcoming/${/*now*/ ctx[1].id}`)) {
 					attr_dev(a, "href", a_href_value);
 				}
 			},
@@ -22588,7 +22596,7 @@ var app = (function () {
 				current = true;
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*datas*/ 1) {
+				if (dirty & /*CONFIG, datas*/ 1) {
 					each_value = ensure_array_like_dev(/*datas*/ ctx[0]);
 					group_outros();
 					validate_each_keys(ctx, each_value, get_each_context$2, get_key);
@@ -23067,12 +23075,12 @@ var app = (function () {
 				t2 = space();
 				if (!src_url_equal(img.src, img_src_value = `https://image.tmdb.org/t/p/original/${/*now*/ ctx[1].poster_path}`)) attr_dev(img, "src", img_src_value);
 				attr_dev(img, "alt", img_alt_value = /*now*/ ctx[1].title);
-				add_location(img, file$5, 25, 14, 680);
+				add_location(img, file$5, 25, 14, 677);
 				attr_dev(div, "class", "img_wrap");
-				add_location(div, file$5, 24, 12, 642);
-				add_location(figcaption, file$5, 27, 12, 798);
-				add_location(figure, file$5, 23, 10, 620);
-				attr_dev(a, "href", a_href_value = `/svelte4-basic-moving/top/${/*now*/ ctx[1].id}`);
+				add_location(div, file$5, 24, 12, 639);
+				add_location(figcaption, file$5, 27, 12, 795);
+				add_location(figure, file$5, 23, 10, 617);
+				attr_dev(a, "href", a_href_value = `${CONFIG.BASE_URL}/top/${/*now*/ ctx[1].id}`);
 				add_location(a, file$5, 22, 8, 558);
 			},
 			m: function mount(target, anchor) {
@@ -23096,7 +23104,7 @@ var app = (function () {
 
 				if (dirty & /*datas*/ 1 && t1_value !== (t1_value = /*now*/ ctx[1].title + "")) set_data_dev(t1, t1_value);
 
-				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `/svelte4-basic-moving/top/${/*now*/ ctx[1].id}`)) {
+				if (dirty & /*datas*/ 1 && a_href_value !== (a_href_value = `${CONFIG.BASE_URL}/top/${/*now*/ ctx[1].id}`)) {
 					attr_dev(a, "href", a_href_value);
 				}
 			},
@@ -23220,7 +23228,7 @@ var app = (function () {
 				current = true;
 			},
 			p: function update(ctx, dirty) {
-				if (dirty & /*datas*/ 1) {
+				if (dirty & /*CONFIG, datas*/ 1) {
 					each_value = ensure_array_like_dev(/*datas*/ ctx[0]);
 					group_outros();
 					validate_each_keys(ctx, each_value, get_each_context$1, get_key);
@@ -26233,7 +26241,7 @@ var app = (function () {
 
 		route0 = new Route({
 				props: {
-					path: "/svelte4-basic-moving",
+					path: `${CONFIG.BASE_URL}/`,
 					component: MainPage
 				},
 				$$inline: true
@@ -26241,7 +26249,7 @@ var app = (function () {
 
 		route1 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/now",
+					path: `${CONFIG.BASE_URL}/now`,
 					component: NowPage
 				},
 				$$inline: true
@@ -26249,7 +26257,7 @@ var app = (function () {
 
 		route2 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/popular",
+					path: `${CONFIG.BASE_URL}/popular`,
 					component: PopularPage
 				},
 				$$inline: true
@@ -26257,7 +26265,7 @@ var app = (function () {
 
 		route3 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/upcoming",
+					path: `${CONFIG.BASE_URL}/upcoming`,
 					component: UpcomingPage
 				},
 				$$inline: true
@@ -26265,7 +26273,7 @@ var app = (function () {
 
 		route4 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/top",
+					path: `${CONFIG.BASE_URL}/top`,
 					component: TopPage
 				},
 				$$inline: true
@@ -26273,7 +26281,7 @@ var app = (function () {
 
 		route5 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/now/:id",
+					path: `${CONFIG.BASE_URL}/now/:id`,
 					component: NowSubPage
 				},
 				$$inline: true
@@ -26281,7 +26289,7 @@ var app = (function () {
 
 		route6 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/popular/:id",
+					path: `${CONFIG.BASE_URL}/popular/:id`,
 					component: PopularSubPage
 				},
 				$$inline: true
@@ -26289,7 +26297,7 @@ var app = (function () {
 
 		route7 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/upcoming/:id",
+					path: `${CONFIG.BASE_URL}/upcoming/:id`,
 					component: UpcomingSubPage
 				},
 				$$inline: true
@@ -26297,7 +26305,7 @@ var app = (function () {
 
 		route8 = new Route({
 				props: {
-					path: "/svelte4-basic-moving/top/:id",
+					path: `${CONFIG.BASE_URL}/top/:id`,
 					component: TopSubPage
 				},
 				$$inline: true

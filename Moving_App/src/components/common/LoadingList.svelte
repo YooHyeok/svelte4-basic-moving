@@ -3,7 +3,7 @@
   import { Navigation } from "swiper";
 
   import 'swiper/css'
-  import 'swiper/css/navigagtion'
+  import 'swiper/css/navigation'
 
   let loadingArray = [];
   for (let i = 0; i < 20; i++) loadingArray.push("")

@@ -26,15 +26,15 @@
 
 <Header />
 <Router {url}>
-	<Route path="/svelte4-basic-moving" component={MainPage}/>
-	<Route path="/svelte4-basic-moving/now" component={NowPage}/>
-	<Route path="/svelte4-basic-moving/popular" component={PopularPage}/>
-	<Route path="/svelte4-basic-moving/upcoming" component={UpcomingPage}/>
-	<Route path="/svelte4-basic-moving/top" component={TopPage}/>
+	<Route path={`${CONFIG.BASE_URL}/`} component={MainPage}/>
+	<Route path={`${CONFIG.BASE_URL}/now`} component={NowPage}/>
+	<Route path={`${CONFIG.BASE_URL}/popular`} component={PopularPage}/>
+	<Route path={`${CONFIG.BASE_URL}/upcoming`} component={UpcomingPage}/>
+	<Route path={`${CONFIG.BASE_URL}/top`} component={TopPage}/>
 
-	<Route path="/svelte4-basic-moving/now/:id" component={NowSubPage}/>
-	<Route path="/svelte4-basic-moving/popular/:id" component={PopularSubPage}/>
-	<Route path="/svelte4-basic-moving/upcoming/:id" component={UpcomingSubPage}/>
-	<Route path="/svelte4-basic-moving/top/:id" component={TopSubPage}/>
+	<Route path={`${CONFIG.BASE_URL}/now/:id`} component={NowSubPage}/>
+	<Route path={`${CONFIG.BASE_URL}/popular/:id`} component={PopularSubPage}/>
+	<Route path={`${CONFIG.BASE_URL}/upcoming/:id`} component={UpcomingSubPage}/>
+	<Route path={`${CONFIG.BASE_URL}/top/:id`} component={TopSubPage}/>
 </Router>
 <Footer />
