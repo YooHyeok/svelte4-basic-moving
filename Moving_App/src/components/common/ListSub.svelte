@@ -1,24 +1,20 @@
 <script>
   import Icon from "@iconify/svelte";
+  import { tmdbImage } from "../../libs/router";
   
   export let id;
   export let datas;
   export let genres;
 
-  const data = datas.filter(data => {
-    return data.id === id;
-  })
-  const { genre_ids, original_title, overview, poster_path, backdrop_path, release_date, title } = data[0]
-  let genre_ko_ids = [];
-  for (let i in genre_ids) {
-    for (let j in genres) {
-      if (genre_ids[i] === genres[j].id)
-        genre_ko_ids.push(genres[j].name)
-    }
-  }
+  $: data = datas.find(data => data.id === Number(id))
+  $: ({ genre_ids = [], original_title, overview, poster_path, backdrop_path, release_date, title } = data || {})
+  $: genre_ko_ids = genre_ids
+    .map(id => genres.find(genre => genre.id === id)?.name)
+    .filter(Boolean)
 </script>
+{#if data}
 <div class="subpage_box">
-  <img src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={title} class="contentsBg">
+  <img src={tmdbImage(backdrop_path, 'w1280')} alt={title} class="contentsBg">
   <div class="contents_wrap">
     <div class="contents_left">
       <h2>{title}({original_title})</h2>
@@ -48,9 +44,19 @@
       </p>
     </div>
     <div class="poster_wrap">
-      <img src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title}>
+      <img src={tmdbImage(poster_path, 'w500')} alt={title}>
     </div>
   </div>
   <Icon/>
 
 </div>
+{:else}
+<div class="subpage_box">
+  <div class="contents_wrap">
+    <div class="contents_left">
+      <h2>영화 정보를 찾을 수 없습니다.</h2>
+      <p>목록에서 다시 선택해 주세요.</p>
+    </div>
+  </div>
+</div>
+{/if}

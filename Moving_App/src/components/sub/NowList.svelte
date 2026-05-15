@@ -1,6 +1,6 @@
 <script>
   import H2Title from "../common/H2Title.svelte";
-  import { routeHref } from "../../libs/router";
+  import { routeHref, tmdbImage } from "../../libs/router";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import { Navigation } from "swiper";
 
@@ -23,7 +23,7 @@
         <a href={routeHref(`/now/${now.id}`)}>
           <figure>
             <div class="img_wrap">
-              <img src={`https://image.tmdb.org/t/p/original/${now.poster_path}`} alt={now.title}>
+              <img src={tmdbImage(now.poster_path, 'w500')} alt={now.title}>
             </div>
             <figcaption>{now.title}</figcaption>
           </figure>

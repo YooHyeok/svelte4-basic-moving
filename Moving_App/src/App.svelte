@@ -18,11 +18,13 @@
 	import UpcomingSubPage from "./pages/UpcomingSubPage.svelte";
 	import TopSubPage from "./pages/TopSubPage.svelte";
 
-	let url = getHashPath();
+	let url = '/';
+	let routerReady = false;
 
 	onMount(() => {
 		movePathToHash();
 		url = getHashPath();
+		routerReady = true;
 
 		const handleHashChange = () => {
 			url = getHashPath();
@@ -39,16 +41,20 @@
 </svelte:head>
 
 <Header />
-<Router {url}>
-	<Route path="/" component={MainPage}/>
-	<Route path="/now" component={NowPage}/>
-	<Route path="/popular" component={PopularPage}/>
-	<Route path="/upcoming" component={UpcomingPage}/>
-	<Route path="/top" component={TopPage}/>
+{#if routerReady}
+	{#key url}
+		<Router {url}>
+			<Route path="/" component={MainPage}/>
+			<Route path="/now" component={NowPage}/>
+			<Route path="/popular" component={PopularPage}/>
+			<Route path="/upcoming" component={UpcomingPage}/>
+			<Route path="/top" component={TopPage}/>
 
-	<Route path="/now/:id" component={NowSubPage}/>
-	<Route path="/popular/:id" component={PopularSubPage}/>
-	<Route path="/upcoming/:id" component={UpcomingSubPage}/>
-	<Route path="/top/:id" component={TopSubPage}/>
-</Router>
+			<Route path="/now/:id" component={NowSubPage}/>
+			<Route path="/popular/:id" component={PopularSubPage}/>
+			<Route path="/upcoming/:id" component={UpcomingSubPage}/>
+			<Route path="/top/:id" component={TopSubPage}/>
+		</Router>
+	{/key}
+{/if}
 <Footer />

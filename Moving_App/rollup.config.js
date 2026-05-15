@@ -9,7 +9,8 @@ import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
-const BASE_URL = production ? '/svelte4-basic-moving/' : '/';
+const deploy = process.env.DEPLOY === 'true';
+const BASE_URL = deploy ? '/svelte4-basic-moving/' : '/';
 
 // public/index.template.html 을 처리해서 public/index.html 생성
 const htmlReplace = () => {

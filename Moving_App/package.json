@@ -7,7 +7,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear --single",
-    "predeploy": "npm run build",
+    "build:deploy": "node -e \"process.env.DEPLOY='true'; process.argv=['node','rollup','-c']; import('./node_modules/rollup/dist/bin/rollup')\"",
+    "predeploy": "npm run build:deploy",
     "deploy": "gh-pages -d public"
   },
   "devDependencies": {

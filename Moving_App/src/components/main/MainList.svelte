@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte"
-  import { routeHref } from "../../libs/router";
+  import { routeHref, tmdbImage } from "../../libs/router";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import { Autoplay, Pagination, EffectFade } from "swiper";
 
@@ -46,7 +46,7 @@
   >
     {#each mains as main, index (main)}
       <SwiperSlide>
-        <img src={`https://image.tmdb.org/t/p/original/${main.backdrop_path}`} alt={main.title}>
+        <img src={tmdbImage(main.backdrop_path, 'w1280')} alt={main.title}>
         <h3>{main.title}</h3>
         <p>
           {#if main.overview === ''}
